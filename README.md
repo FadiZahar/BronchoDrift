@@ -1,5 +1,7 @@
 # BronchoDrift
 
+![BronchoDrift interactive viewer](docs/BronchoDrift_interface.png)
+
 Prototype for a controllable synthetic CT-to-body divergence (CTBD) generator for bronchoscopy navigation (catheter localization), with an interactive viewer for live tuning.
 
 ## The problem
@@ -102,6 +104,8 @@ BronchoDrift/
 │       ├── centerline_deformed.ply          # deformed centerline (built by step 2, script 02)
 │       ├── airway_deformed.obj              # deformed mesh (built by step 2, script 02)
 │       └── material.mtl                     # OBJ material file for the deformed mesh
+├── docs/
+│   └── BronchoDrift_interface.png
 ├── requirements.txt
 ├── .gitignore
 └── README.md

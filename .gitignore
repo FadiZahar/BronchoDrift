@@ -27,6 +27,11 @@ data/raw/Attempts/
 .polyscope.ini
 imgui.ini
 
+# Polyscope screenshots dumped into the package directory
+/*.png
+/*.jpg
+/*.jpeg
+
 # Build / packaging
 *.egg-info/
 build/
