@@ -1,0 +1,33 @@
+# IDE / editor
+.idea/
+.vscode/
+.DS_Store
+
+# Python bytecode
+**/__pycache__
+**/*.pyc
+**/*.pyo
+
+# Virtual environments
+venv/
+brdr_venv/
+.venv/
+env/
+
+# Notebooks and scratch work
+notebooks/
+draft/
+ipynb_checkpoints/
+
+# Blender working files: keeping only the source assets needed
+*.blend1
+data/raw/Attempts/
+
+# Polyscope / ImGui runtime state
+.polyscope.ini
+imgui.ini
+
+# Build / packaging
+*.egg-info/
+build/
+dist/
