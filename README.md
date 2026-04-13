@@ -10,7 +10,16 @@ Bronchoscopy navigation systems plan a path on a pre-operative CT, but the patie
 
 ## Quickstart
 
-All commands assume you are running them from the repo root (`BronchoDrift/`).
+All commands assume you are running them from the repo root (`BronchoDrift/`). A virtual environment is recommended.
+
+```bash
+python3 -m venv brdr_venv
+
+# Activate (pick the line for your platform):
+source brdr_venv/bin/activate       # macOS / Linux
+brdr_venv\Scripts\activate          # Windows (cmd.exe / Git Bash)
+brdr_venv\Scripts\Activate.ps1      # Windows (PowerShell)
+```
 
 ```bash
 pip install -r requirements.txt

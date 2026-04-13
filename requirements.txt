@@ -4,3 +4,4 @@ networkx>=3.0
 scikit-image>=0.21
 trimesh>=4.0
 polyscope>=2.2
+rtree>=1.0

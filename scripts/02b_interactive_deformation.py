@@ -103,7 +103,7 @@ def main():
 
     path_pts = np.array([T.nodes[n]["pos"] for n in demo_path])
     ps_path = ps.register_curve_network(
-        "catheter path",
+        "catheter path (body frame)",
         path_pts,
         np.array([[i, i+1] for i in range(len(path_pts)-1)]),
         radius=0.0025, color=(1.0, 0.9, 0.2))
