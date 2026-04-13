@@ -116,7 +116,8 @@ def main():
     ps_tip_ct = ps.register_point_cloud(
         "catheter tip (CT frame)", path_pts[:1], radius=0.010, color=(0.125, 0.25, 1.0))
 
-    cache = {"T_def": T, "mesh_def": mesh, "path_def": path_pts.copy()}
+    cache = {"T_def": T, "mesh_def": mesh, "path_def": path_pts.copy(),
+             "camera_mode": None}   # None | "ct" | "body"
 
     def recompute():
         if state["tidal_mode"] or not state["atel_on"]:
@@ -165,6 +166,11 @@ def main():
         cache["ct_tip"] = ct_tip
         cache["body_tip"] = body_tip
         cache["tip_idx"] = i
+
+        if cache["camera_mode"] == "ct":
+            look_from(ct_tip, i, "ct")
+        elif cache["camera_mode"] == "body":
+            look_from(body_tip, i, "body")
 
     def look_from(tip, idx, frame):
         """Camera at `tip`, looking down local path tangent.
@@ -299,14 +305,18 @@ def main():
             psim.TextUnformatted(f"tracker error: {err:.2f} (mesh units)")
 
         if psim.Button("view CT from tip"):
+            cache["camera_mode"] = "ct"
             look_from(cache["ct_tip"], cache["tip_idx"], "ct")
         psim.SameLine()
         if psim.Button("view body from tip"):
+            cache["camera_mode"] = "body"
             look_from(cache["body_tip"], cache["tip_idx"], "body")
         if psim.Button("reset view"):
+            cache["camera_mode"] = None
             reset_view()
         psim.SameLine()
         if psim.Button("RESET ALL PARAMETERS"):
+            cache["camera_mode"] = None
             reset_state()
 
     recompute()
